@@ -57,6 +57,9 @@ console.log(lastLetter("z"));
 // Write `initials(first, last)` that RETURNS the two first letters,
 // uppercased, joined with a dot: "M.J".
 // your code here
+function initials(first, last){
+    
+}
 
 // console.log(initials("maria", "jones"));
 // TEST 1:  initials("maria", "jones")  ->  "M.J"
@@ -67,6 +70,9 @@ console.log(lastLetter("z"));
 // Write `capitalize(word)` that RETURNS the word with the first letter
 // uppercased and the rest unchanged.
 // your code here
+function capitalize(word){
+    
+}
 
 // console.log(capitalize("maria"));
 // TEST 1:  capitalize("maria")  ->  "Maria"
