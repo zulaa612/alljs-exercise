@@ -12,11 +12,7 @@
 // Write `isBigger(a, b)` that RETURNS true when a is greater than b.
 // your code here
 function isBigger(a, b){
-    if (a > b){
-        return true;
-    } else {
-        return false;
-    }
+    return a > b;
 }
 console.log(isBigger(10, 3));
 console.log(isBigger(3, 10 ));
@@ -31,11 +27,7 @@ console.log(isBigger(5, 5));
 // Write `sameValueAndType(a, b)` that RETURNS true only when a === b.
 // your code here
 function sameValueAndType(a, b){
-    if (a === b){
-        return true;
-    } else {
-        return false;
-    }
+    return a === b;
 }
 console.log(sameValueAndType(5, 5));
 console.log(sameValueAndType(5, "5"));
@@ -49,11 +41,7 @@ console.log(sameValueAndType("a", "a"));
 // Write `isWorkHour(hour)` that RETURNS true when hour is >= 9 AND < 17.
 // your code here
 function isWorkHour(hour){
-    if (hour >= 9 && hour < 17){
-        return true;
-    } else {
-        return false;
-    }
+    return hour >= 9 && hour < 17;
 }
 console.log(isWorkHour(10));
 console.log(isWorkHour(17));
@@ -68,11 +56,7 @@ console.log(isWorkHour(8));
 // Write `isWeekend(day)` that RETURNS true when day is "Sat" OR "Sun".
 // your code here
 function isWeekend(day){
-    if (day === "Sat" || day === "Sun"){
-        return true;
-    } else {
-        return false;
-    }
+    return day === "Sat" || say === "Sun";
 }
 console.log(isWeekend("Sat"));
 console.log(isWeekend("Sun"));
@@ -102,11 +86,7 @@ console.log(flip(0));
 // Write `isEven(n)` that RETURNS true when n divides evenly by 2 (use %).
 // your code here
 function isEven(n){
-    if (n % 2 === 0){
-        return true;
-    } else {
-        return false;
-    }
+    return n % 2 === 0;
 }
 console.log(isEven(8));
 console.log(isEven(7));
@@ -121,11 +101,7 @@ console.log(isEven(0));
 // Write `inRange(n)` that RETURNS true when n is between 50 and 100 inclusive.
 // your code here
 function isRange(n){
-    if (50 <= n && 100 >= n){
-        return true;
-    } else {
-        return false;
-    }
+    return n >= 50 && n <= 100;
 }
 console.log(isRange(75));
 console.log(isRange(50));
@@ -141,11 +117,7 @@ console.log(isRange(101));
 // (Use the || operator.)
 // your code here
 function displayName(nick){
-    if (nick === ""){
-        return "Guest";
-    } else {
-        return nick;
-    }
+    return nick || "Guest";
 }
 console.log(displayName(""));
 console.log(displayName("Sam"));
@@ -161,11 +133,7 @@ console.log(displayName("x"));
 // BOTH 3 and 5.
 // your code here
 function divisibleByBoth(n){
-    if (n % 3 === 0 && n % 5 === 0){
-        return true;
-    } else {
-        return false;
-    }
+    return n % 3 === 0 && n % 5 === 0;
 }
 console.log(divisibleByBoth(15));
 console.log(divisibleByBoth(9));
@@ -180,11 +148,7 @@ console.log(divisibleByBoth(30));
 // OR isAdmin is true.
 // your code here
 function canEnter(pinOk, isAdmin){
-    if (pinOk === true || isAdmin === true){
-        return true;
-    } else {
-        return false;
-    }
+    return pinOk || isAdmin;
 }
 console.log(canEnter(false, true));
 console.log(canEnter(true, false));

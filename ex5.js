@@ -58,8 +58,11 @@ console.log(lastLetter("z"));
 // uppercased, joined with a dot: "M.J".
 // your code here
 function initials(first, last){
-    
+    return first[0].toUpperCase() + "." + last[0].toUpperCase();
 }
+console.log(initials("maria", "jones"));
+console.log(initials("sam", "lee"));
+console.log(initials("a", "b"));
 
 // console.log(initials("maria", "jones"));
 // TEST 1:  initials("maria", "jones")  ->  "M.J"
@@ -71,9 +74,11 @@ function initials(first, last){
 // uppercased and the rest unchanged.
 // your code here
 function capitalize(word){
-    
+    return word[0].toUpperCase + word.slice(1);
 }
-
+console.log(capitalize("maria"));
+console.log(capitalize("code"));
+console.log(capitalize("x"));
 // console.log(capitalize("maria"));
 // TEST 1:  capitalize("maria")  ->  "Maria"
 // TEST 2:  capitalize("code")   ->  "Code"
@@ -82,6 +87,13 @@ function capitalize(word){
 // ----- 6. Looks like an email -----
 // Write `isEmail(text)` that RETURNS true when text includes "@", else false.
 // your code here
+function isEmail(text){
+    return text.includes("@");
+
+}
+console.log(isEmail("sam@mail.com"));
+console.log(isEmail("sam.com"));
+console.log(isEmail("@"));
 
 // console.log(isEmail("sam@mail.com"));
 // TEST 1:  isEmail("sam@mail.com")  ->  true
@@ -92,6 +104,16 @@ function capitalize(word){
 // Write `validUsername(name)` that RETURNS "Valid" when length is >= 3
 // AND <= 15, otherwise "Invalid".
 // your code here
+function validUsername(name){
+    if (name.length >= 3 && name.length <= 15){
+        return "Valid";
+    } else {
+        return "Invalid";
+    }
+}
+console.log(validUsername("jordan"));
+console.log(validUsername("jo"));
+console.log(validUsername("a"));
 
 // console.log(validUsername("jordan"));
 // TEST 1:  validUsername("jordan")  ->  "Valid"
@@ -101,6 +123,12 @@ function capitalize(word){
 // ----- 8. Area code -----
 // Write `areaCode(phone)` (10-char string) that RETURNS the first 3 chars.
 // your code here
+function areaCode(phone){
+    return phone.slice(0, 3);
+}
+console.log(areaCode("5551234567"));
+console.log(areaCode("2129998888"));
+console.log(areaCode("0000000000"));
 
 // console.log(areaCode("5551234567"));
 // TEST 1:  areaCode("5551234567")  ->  "555"
@@ -110,6 +138,12 @@ function capitalize(word){
 // ----- 9. Same word ignoring case -----
 // Write `sameWord(a, b)` that RETURNS true when a and b match ignoring case.
 // your code here
+function sameWord(a, b){
+    return a.toLowerCase() === b.toLowerCase();
+}
+console.log(sameWord("Hello", "hello"));
+console.log(sameWord("cat", "dog"));
+console.log(sameWord("ABC", "abc"));
 
 // console.log(sameWord("Hello", "hello"));
 // TEST 1:  sameWord("Hello", "hello")  ->  true
@@ -120,6 +154,12 @@ function capitalize(word){
 // Write `cleanLength(raw)` that trims the spaces off both ends and RETURNS
 // the length of what is left.
 // your code here
+function cleanLength(raw){
+    return raw.trim().length;
+}
+console.log(cleanLength("  hi  "));
+console.log(cleanLength("  hello   "));
+console.log(cleanLength("x"));
 
 // console.log(cleanLength("  hi  "));
 // TEST 1:  cleanLength("  hi  ")      ->  2
@@ -130,6 +170,16 @@ function capitalize(word){
 // Write `padClock(minute)` (0-59 number). RETURN a 2-char string, adding a
 // leading "0" when it is a single digit: 5 -> "05", 42 -> "42".
 // your code here
+function padClock(minute){
+    if (minute < 10){
+        return "0" + minute;
+    } else {
+        return String(minute);
+    }
+}
+console.log(padClock(5));
+console.log(padClock(42));
+console.log(padClock(0));
 
 // console.log(padClock(5));
 // TEST 1:  padClock(5)   ->  "05"
@@ -140,6 +190,13 @@ function capitalize(word){
 // Write `priceTag(cents)` (3+ digit whole number). RETURN "$D.CC" where CC
 // is the last 2 digits and D is the rest: 150 -> "$1.50", 905 -> "$9.05".
 // your code here
+function priceTag(cents){
+    let text = String(cents);
+    let dollars = text.slice(0, -2);
+    let coins = text.slice(-2);
+    return "$" + dollars + "." + coins;
+}
+console.log(priceTag(150));
 
 // console.log(priceTag(150));
 // TEST 1:  priceTag(150)  ->  "$1.50"

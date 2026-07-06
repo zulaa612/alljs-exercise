@@ -13,6 +13,12 @@
 // ----- 1. First item -----
 // Write `firstItem(arr)` that RETURNS the item at index 0.
 // your code here
+function firstItem(arr) {
+  return arr[0];
+}
+console.log(firstItem([10, 20, 30]));
+console.log(firstItem(["a", "b"]));
+console.log(firstItem([7]));
 
 // console.log(firstItem([10, 20, 30]));
 // TEST 1:  firstItem([10, 20, 30])  ->  10
@@ -22,6 +28,16 @@
 // ----- 2. Sum all -----
 // Write `sumAll(arr)` (numbers) that RETURNS the total of every item.
 // your code here
+function sumAll(arr) {
+  sum = 0;
+  for (i = 0; i < arr.length; i++) {
+    sum = sum + arr[i];
+  }
+  return sum;
+}
+console.log(sumAll([1, 2, 3, 4]));
+console.log(sumAll([]));
+console.log(sumAll([5]));
 
 // console.log(sumAll([1, 2, 3, 4]));
 // TEST 1:  sumAll([1, 2, 3, 4])  ->  10
@@ -31,6 +47,19 @@
 // ----- 3. Biggest number -----
 // Write `maxOf(arr)` (numbers) that RETURNS the largest item.
 // your code here
+function maxOf(arr) {
+  max = arr[0];
+  for (i = 0; i < arr.length; i++) {
+    if (arr[i] > max) {
+      max = arr[i];
+    }
+  }
+  return max;
+}
+
+console.log(maxOf([3, 9, 5]));
+console.log(maxOf([-1, -5, -2]));
+console.log(maxOf([7]));
 
 // console.log(maxOf([3, 9, 5]));
 // TEST 1:  maxOf([3, 9, 5])      ->  9
@@ -40,7 +69,18 @@
 // ----- 4. Count occurrences -----
 // Write `countOf(arr, target)` that RETURNS how many items equal target.
 // your code here
-
+function countOf(arr, target) {
+  count = 0;
+  for (i = 0; i < arr.length; i++) {
+    if (arr[i] === target) {
+      count++;
+    }
+  }
+  return count;
+}
+console.log(countOf([1, 2, 2, 3, 2], 2));
+console.log(countOf(["a", "b", "a"], "a"));
+console.log(countOf([1, 2, 3], 9));
 // console.log(countOf([1, 2, 2, 3, 2], 2));
 // TEST 1:  countOf([1, 2, 2, 3, 2], 2)        ->  3
 // TEST 2:  countOf(["a", "b", "a"], "a")      ->  2
@@ -49,6 +89,13 @@
 // ----- 5. Add to end -----
 // Write `append(arr, item)` that pushes item and RETURNS arr.
 // your code here
+function append(arr, item) {
+  arr.push(item);
+  return arr;
+}
+console.log(append([1, 2], 3));
+console.log(append([], "hi").length);
+console.log(append(["a"], "b"));
 
 // console.log(append([1, 2], 3));
 // TEST 1:  append([1, 2], 3)          ->  [1, 2, 3]
@@ -58,7 +105,13 @@
 // ----- 6. Remove first -----
 // Write `removeFirst(arr)` that shifts off the first item and RETURNS arr.
 // your code here
-
+function removeFirst(arr) {
+  arr.shift();
+  return arr;
+}
+console.log(removeFirst([1, 2, 3]));
+console.log(removeFirst([9]).length);
+console.log(removeFirst(["a", "b", "c"]));
 // console.log(removeFirst([1, 2, 3]));
 // TEST 1:  removeFirst([1, 2, 3])        ->  [2, 3]
 // TEST 2:  removeFirst([9]).length       ->  0
@@ -67,6 +120,12 @@
 // ----- 7. Contains -----
 // Write `contains(arr, item)` that RETURNS true when item is in arr.
 // your code here
+function contains(arr, item){
+   return arr.includes(item);
+}
+console.log(contains(["cat", "dog"], "dog"));
+console.log(contains([1, 2, 3], 9));
+console.log(contains([], "x"));
 
 // console.log(contains(["cat", "dog"], "dog"));
 // TEST 1:  contains(["cat", "dog"], "dog")   ->  true
@@ -76,6 +135,19 @@
 // ----- 8. Count even numbers -----
 // Write `countEven(arr)` (numbers) that RETURNS how many items are even.
 // your code here
+function countEven(arr){
+   count = 0;
+   for (i = 0 ; i < arr.length; i++){
+      if(arr[i] % 2 === 0){
+         count++;
+      }
+   }
+   return count;
+}
+
+console.log(countEven([1, 2, 3, 4, 6]));
+console.log(countEven([1, 3, 5]));
+console.log(countEven([2, 4]));
 
 // console.log(countEven([1, 2, 3, 4, 6]));
 // TEST 1:  countEven([1, 2, 3, 4, 6])  ->  3
@@ -86,7 +158,20 @@
 // Write `dashJoin(arr)` that RETURNS the items joined into one string with
 // "-" between them, built with a loop. dashJoin(["a","b","c"]) -> "a-b-c".
 // your code here
-
+function dashJoin(arr){
+   result = "";
+   for(i = 0; i < arr.length; i++){
+      if(result === ""){
+         result = arr[i];
+      } else {
+         result = result + "-" + arr[i];
+      }
+   }
+   return result;
+}
+console.log(dashJoin(["a", "b", "c"]));
+console.log(dashJoin(["one"]));
+console.log(dashJoin([1, 2]));
 // console.log(dashJoin(["a", "b", "c"]));
 // TEST 1:  dashJoin(["a", "b", "c"])  ->  "a-b-c"
 // TEST 2:  dashJoin(["one"])          ->  "one"
@@ -95,6 +180,16 @@
 // ----- 10. Average -----
 // Write `average(arr)` (numbers) that RETURNS the mean of the items.
 // your code here
+function average(arr){
+   mean = 0; 
+   for (i = 0; i < arr.length; i++){
+      mean = mean + arr[i];
+   }
+   return mean / arr.length;
+}
+console.log(average([2, 4, 6]));
+console.log(average([10, 20]));
+console.log(average([5]));
 
 // console.log(average([2, 4, 6]));
 // TEST 1:  average([2, 4, 6])    ->  4
@@ -105,7 +200,16 @@
 // Write `reverseArr(arr)` that RETURNS a NEW array with the items reversed.
 // Do not change the original.
 // your code here
-
+function reverseArr(arr){
+   result = [];
+   for (i = arr.length-1; i >=0; i--){
+      result.push(arr[i]);
+   }
+   return result;
+}
+console.log(reverseArr([1, 2, 3]));
+console.log(reverseArr(["a", "b"]));
+console.log(reverseArr([7]));
 // console.log(reverseArr([1, 2, 3]));
 // TEST 1:  reverseArr([1, 2, 3])        ->  [3, 2, 1]
 // TEST 2:  reverseArr(["a", "b"])       ->  ["b", "a"]
@@ -115,7 +219,18 @@
 // Write `evensOnly(arr)` that RETURNS a NEW array with only the even numbers,
 // in the same order.
 // your code here
-
+function evensOnly(arr){
+   result = [];
+   for (i = 0; i < arr.length; i++){
+      if(arr[i] % 2 === 0){
+         result.push(arr[i]);
+      }
+   }
+   return result;
+}
+console.log(evensOnly([1, 2, 3, 4, 5, 6]));
+console.log(evensOnly([1, 3, 5]));
+console.log(evensOnly([2, 4]));
 // console.log(evensOnly([1, 2, 3, 4, 5, 6]));
 // TEST 1:  evensOnly([1, 2, 3, 4, 5, 6])  ->  [2, 4, 6]
 // TEST 2:  evensOnly([1, 3, 5])           ->  []

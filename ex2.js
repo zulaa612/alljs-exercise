@@ -104,7 +104,7 @@ console.log(asBoolean(""));
 // Write `isMissing(value)` that RETURNS true when value is undefined.
 // your code here
 function isMissing(value){
-    return !! value;
+    return value === undefined;
 }
 console.log(isMissing(undefined));
 console.log(isMissing(0));
@@ -121,6 +121,7 @@ console.log(isMissing("x"));
 // your code here
 function firstDigitType(n){
     let m = String(n);
+    let firstChar = text[0];
     return typeof(m);
 }
 console.log(firstDigitType(42));

@@ -31,7 +31,7 @@ console.log(passFail(40));
 // Write `signOf(n)` that RETURNS "positive", "negative", or "zero".
 // your code here
 function signOf(n){
-    if (n >= 1){
+    if (n > 0){
         return "positive";
     } else if (n < 0){
         return "negative";
@@ -79,7 +79,7 @@ function bigger(a, b){
         return b;
     } else if (a === b){
         return "equal";
-    } else if (a > b){
+    } else {
         return a;
     }
 }
@@ -209,7 +209,7 @@ function absValue(n){
     if (n >= 0){
         return n;
     } else {
-        return n;
+        return -n;
     }
 }
 console.log(absValue(-7));

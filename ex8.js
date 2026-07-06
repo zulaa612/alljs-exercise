@@ -13,8 +13,8 @@
 // ----- 1. Make a book -----
 // Write `makeBook()` (no input) that RETURNS { title: "Dune", pages: 412 }.
 // your code here
-function makeBook(){
-   return {title: "Dune", pages: 412};
+function makeBook() {
+  return { title: "Dune", pages: 412 };
 }
 console.log(makeBook().title);
 console.log(makeBook().pages);
@@ -27,8 +27,8 @@ console.log(typeof makeBook());
 // ----- 2. Read a key -----
 // Write `getTitle(book)` that RETURNS the title property.
 // your code here
-function getTitle(book){
-   return book.title;
+function getTitle(book) {
+  return book.title;
 }
 console.log(getTitle({ title: "1984", pages: 328 }));
 console.log(getTitle({ title: "It" }));
@@ -41,8 +41,8 @@ console.log(getTitle({ title: "" }));
 // ----- 3. Read by variable key -----
 // Write `field(obj, key)` that RETURNS the value behind key (use brackets).
 // your code here
-function field(obj, key){
-   return obj[key];
+function field(obj, key) {
+  return obj[key];
 }
 console.log(field({ a: 1, b: 2 }, "b"));
 console.log(field({ city: "NYC" }, "city"));
@@ -55,9 +55,9 @@ console.log(field({ a: 1 }, "missing"));
 // ----- 4. Set a price (mutate) -----
 // Write `setPrice(item, price)` that sets item.price = price and RETURNS item.
 // your code here
-function setPrice(item, price){
-   item.price = price;
-   return item;
+function setPrice(item, price) {
+  item.price = price;
+  return item;
 }
 console.log(setPrice({ name: "pen" }, 3).price);
 console.log(setPrice({ price: 1 }, 9).price);
@@ -71,12 +71,12 @@ console.log(setPrice({ name: "x" }, 0).price);
 // ----- 5. Has key? -----
 // Write `hasKey(obj, key)` that RETURNS true when key exists in obj.
 // your code here
-function hasKey(obj, key){
-   if ( key in obj){
-      return true;
-   } else {
-      return false;
-   }
+function hasKey(obj, key) {
+  if (key in obj) {
+    return true;
+  } else {
+    return false;
+  }
 }
 console.log(hasKey({ a: 1 }, "a"));
 console.log(hasKey({ a: 1 }, "b"));
@@ -90,9 +90,9 @@ console.log(hasKey({ name: "x" }, "name"));
 // ----- 6. Remove a key (mutate) -----
 // Write `removeKey(obj, key)` that deletes key from obj and RETURNS obj.
 // your code here
-function removeKey(obj, key){
-   delete obj[key];
-   return obj;
+function removeKey(obj, key) {
+  delete obj[key];
+  return obj;
 }
 console.log("b" in removeKey({ a: 1, b: 2 }, "b"));
 console.log("a" in removeKey({ a: 1, b: 2 }, "b"));
@@ -105,12 +105,12 @@ console.log(removeKey({ x: 9 }, "x").x);
 // ----- 7. Count the keys -----
 // Write `keyCount(obj)` that RETURNS how many keys obj has.
 // your code here
-function keyCount(obj){
-   return Object.keys(obj).length;
+function keyCount(obj) {
+  return Object.keys(obj).length;
 }
 console.log(keyCount({ a: 1, b: 2, c: 3 }));
 console.log(keyCount({}));
-console.log(keyCount({ only: true}));
+console.log(keyCount({ only: true }));
 // console.log(keyCount({ a: 1, b: 2, c: 3 }));
 // TEST 1:  keyCount({ a: 1, b: 2, c: 3 })  ->  3
 // TEST 2:  keyCount({})                    ->  0
@@ -119,7 +119,16 @@ console.log(keyCount({ only: true}));
 // ----- 8. Sum the values -----
 // Write `sumValues(obj)` (all values are numbers) that RETURNS their total.
 // your code here
-
+function sumValues(obj) {
+  sum = 0;
+  for (key in obj) {
+    sum = sum + obj[key];
+  }
+  return sum;
+}
+console.log(sumValues({ a: 1, b: 2, c: 3 }));
+console.log(sumValues({ x: 10, y: 5 }));
+console.log(sumValues({ only: 7 }));
 // console.log(sumValues({ a: 1, b: 2, c: 3 }));
 // TEST 1:  sumValues({ a: 1, b: 2, c: 3 })  ->  6
 // TEST 2:  sumValues({ x: 10, y: 5 })       ->  15
@@ -129,7 +138,12 @@ console.log(keyCount({ only: true}));
 // Write `merge(a, b)` that RETURNS a NEW object with both, b winning on
 // shared keys. Do not change a or b.
 // your code here
-
+function merge(a, b){
+   return {...a, ...b};
+}
+console.log(merge({ a: 1 }, { b: 2 }).b);
+console.log(merge({ a: 1 }, { a: 9 }).a);
+console.log(keyCount (merge({ a: 1 }, { b: 2 })));
 // console.log(merge({ a: 1 }, { b: 2 }));
 // TEST 1:  merge({ a: 1 }, { b: 2 }).b         ->  2
 // TEST 2:  merge({ a: 1 }, { a: 9 }).a         ->  9
@@ -139,6 +153,20 @@ console.log(keyCount({ only: true}));
 // Write `topKey(scores)` (values are numbers) that RETURNS the key with the
 // biggest value.
 // your code here
+function topKey(scores){
+   bestKey = "";
+   bestValue = -Infinity;
+   for (key in scores){
+      if(scores[key] > bestValue){
+         bestValue = scores[key];
+         bestKey = key;
+      }
+   }
+   return bestKey;
+}
+console.log(topKey({ sam: 5, ada: 9, bo: 3 }));
+console.log(topKey({ a: 1, b: 2 }));
+console.log(topKey({ only: 7 }));
 
 // console.log(topKey({ sam: 5, ada: 9, bo: 3 }));
 // TEST 1:  topKey({ sam: 5, ada: 9, bo: 3 })  ->  "ada"
